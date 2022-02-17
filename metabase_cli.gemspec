@@ -8,9 +8,8 @@ Gem::Specification.new do |spec|
   spec.authors = ["Armand Fardeau"]
   spec.email = ["fardeauarmand@gmail.com"]
 
-  spec.summary = "Write a short summary, because RubyGems requires one."
-  spec.description = "Write a longer description or delete this line."
-  spec.homepage = "https://google.com"
+  spec.summary = "Cli for Metabase API"
+  spec.homepage = "https://github.com/armandfardeau/metabase_cli"
   spec.license = "MIT"
   spec.required_ruby_version = ">= 2.6.0"
 

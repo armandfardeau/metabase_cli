@@ -11,7 +11,7 @@ Gem::Specification.new do |spec|
   spec.summary = "Cli for Metabase API"
   spec.homepage = "https://github.com/armandfardeau/metabase_cli"
   spec.license = "MIT"
-  spec.required_ruby_version = ">= 2.6.0"
+  spec.required_ruby_version = ">= 2.7.5"
 
   spec.metadata["allowed_push_host"] = "https://rubygems.org"
 
@@ -33,6 +33,7 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'thor'
   spec.add_dependency 'metabase'
   spec.add_dependency 'hash-deep-merge'
+  spec.add_dependency 'eventmachine'
 
   spec.add_development_dependency "rspec"
   spec.add_development_dependency "rake"

@@ -8,7 +8,8 @@ GIT
 PATH
   remote: .
   specs:
-    metabase_cli (0.1.0)
+    metabase_cli (0.1.1)
+      eventmachine
       hash-deep-merge
       metabase
       thor

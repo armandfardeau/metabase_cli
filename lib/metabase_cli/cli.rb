@@ -1,12 +1,12 @@
 require 'thor'
-require "metabase_api/database_service"
+require "metabase_cli/database_service"
 
-module MetabaseApi
+module MetabaseCli
   class CLI < Thor
     desc 'version', 'Prints the version'
 
     def version
-      puts "MetabaseApi version #{MetabaseApi::VERSION}"
+      puts "MetabaseApi version #{MetabaseCli::VERSION}"
     end
 
     desc 'create', 'Create a database'
@@ -20,7 +20,7 @@ module MetabaseApi
       dbusername = ask("Database username: ", default: ENV.fetch("DB_USERNAME", nil))
       password = ask("Database password: ", default: ENV.fetch("DB_PASSWORD", nil))
 
-      MetabaseApi::DatabaseService.new(
+      MetabaseCli::DatabaseService.new(
         client_name: client_name,
         dbname: dbname,
         engine: engine,

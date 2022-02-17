@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-RSpec.describe MetabaseApi do
+RSpec.describe MetabaseCli do
   it "has a version number" do
-    expect(MetabaseApi::VERSION).not_to be nil
+    expect(MetabaseCli::VERSION).not_to be nil
   end
 
   it "does something useful" do

@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
-require_relative "lib/metabase_api/version"
+require_relative "lib/metabase_cli/version"
 
 Gem::Specification.new do |spec|
-  spec.name = "metabase_api"
-  spec.version = MetabaseApi::VERSION
+  spec.name = "metabase_cli"
+  spec.version = MetabaseCli::VERSION
   spec.authors = ["Armand Fardeau"]
   spec.email = ["fardeauarmand@gmail.com"]
 

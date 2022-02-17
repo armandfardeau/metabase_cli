@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 
 require 'em/pure_ruby' if not defined?(EventMachine)
-require "metabase_api"
+require "metabase_cli"
 
-MetabaseApi::CLI.start(ARGV)
+MetabaseCli::CLI.start(ARGV)
 

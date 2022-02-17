@@ -1,7 +1,7 @@
 require "metabase"
 require "hash_deep_merge"
 
-module MetabaseApi
+module MetabaseCli
   class DatabaseService
     def initialize(client_name:, dbname:, engine:, host:, port:, dbusername:, password:)
       @client_name = client_name

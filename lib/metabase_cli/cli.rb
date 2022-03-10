@@ -1,5 +1,7 @@
 require 'thor'
 require "metabase_cli/database_service"
+require "metabase_cli/user_service"
+require "metabase_cli/group_service"
 
 module MetabaseCli
   class CLI < Thor
@@ -10,6 +12,7 @@ module MetabaseCli
     end
 
     desc 'create_database', 'Create a database'
+
     def create_database
       client_name = ask("Client name: ")
       dbname = ask("Database name: ")
@@ -31,10 +34,11 @@ module MetabaseCli
     end
 
     desc 'create_user', 'Create a user'
+
     def create_user
       first_name = ask("First name: ")
       last_name = ask("Last name: ")
-      email= ask("Email: ")
+      email = ask("Email: ")
       group_wanted = ask("Group wanted: ")
 
       MetabaseCli::UserService.new(
@@ -43,6 +47,15 @@ module MetabaseCli
         email: email,
         group_wanted: group_wanted
       ).create_user
+    end
+
+    desc 'create_group', 'Create a group'
+    def create_group
+      name = ask("Group name: ")
+
+      MetabaseCli::GroupService.new(
+        name: name
+      ).create_group
     end
   end
 end

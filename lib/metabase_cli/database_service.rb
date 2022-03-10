@@ -1,6 +1,6 @@
 require "metabase"
 require "hash_deep_merge"
-require_relative "client"
+require_relative "api"
 
 module MetabaseCli
   class DatabaseService

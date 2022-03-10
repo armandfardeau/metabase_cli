@@ -8,7 +8,7 @@ GIT
 PATH
   remote: .
   specs:
-    metabase_cli (0.1.2)
+    metabase_cli (0.1.3)
       eventmachine
       hash-deep-merge
       metabase

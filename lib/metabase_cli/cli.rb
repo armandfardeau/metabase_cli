@@ -9,9 +9,8 @@ module MetabaseCli
       puts "MetabaseApi version #{MetabaseCli::VERSION}"
     end
 
-    desc 'create', 'Create a database'
-
-    def create
+    desc 'create_database', 'Create a database'
+    def create_database
       client_name = ask("Client name: ")
       dbname = ask("Database name: ")
       engine = ask("Database engine: ", default: "postgres")

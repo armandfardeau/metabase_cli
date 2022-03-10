@@ -19,7 +19,7 @@ DB_PASSWORD=your_database_password
 
 ### Create database with default permissions
 
-    $ metabase_cli create
+    $ metabase_cli create_database
 
 ## Development
 

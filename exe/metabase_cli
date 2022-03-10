@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
+# frozen_string_literal: true
 
-require 'em/pure_ruby' if not defined?(EventMachine)
+require "em/pure_ruby" unless defined?(EventMachine)
 require "metabase_cli"
 
 MetabaseCli::CLI.start(ARGV)
-

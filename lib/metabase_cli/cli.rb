@@ -1,17 +1,21 @@
-require 'thor'
+# frozen_string_literal: true
+
+require "thor"
 require "metabase_cli/database_service"
+require "metabase_cli/user_service"
+require "metabase_cli/group_service"
 
 module MetabaseCli
   class CLI < Thor
-    desc 'version', 'Prints the version'
+    desc "version", "Prints the version"
 
     def version
       puts "MetabaseApi version #{MetabaseCli::VERSION}"
     end
 
-    desc 'create', 'Create a database'
+    desc "create_database", "Create a database"
 
-    def create
+    def create_database
       client_name = ask("Client name: ")
       dbname = ask("Database name: ")
       engine = ask("Database engine: ", default: "postgres")
@@ -29,6 +33,46 @@ module MetabaseCli
         dbusername: dbusername,
         password: password
       ).create_database.set_default_permissions
+    end
+
+    desc "create_user", "Create a user"
+
+    def create_user(group_id = nil)
+      first_name = ask("First name: ")
+      last_name = ask("Last name: ")
+      email = ask("Email: ")
+      group_wanted = ask("Group wanted: ", default: (group_id || "1"))
+
+      MetabaseCli::UserService.new(
+        first_name: first_name,
+        last_name: last_name,
+        email: email,
+        group_wanted: group_wanted
+      ).create_user
+                              .invite_again
+    end
+
+    desc "create_group", "Create a group"
+
+    def create_group
+      name = ask("Group name: ")
+
+      MetabaseCli::GroupService.new(
+        name: name
+      ).create_group
+    end
+
+    desc "create_grouped_user", "Create a user and a group"
+
+    def create_grouped_user
+      group_id = create_group
+      create_user(group_id)
+    end
+
+    desc "create", "Create database, user and a group"
+    def create
+      create_database
+      create_grouped_user
     end
   end
 end

@@ -35,11 +35,11 @@ module MetabaseCli
 
     desc 'create_user', 'Create a user'
 
-    def create_user
+    def create_user(group_id = nil)
       first_name = ask("First name: ")
       last_name = ask("Last name: ")
       email = ask("Email: ")
-      group_wanted = ask("Group wanted: ", default: "1")
+      group_wanted = ask("Group wanted: ", default: (group_id || "1"))
 
       MetabaseCli::UserService.new(
         first_name: first_name,
@@ -58,6 +58,19 @@ module MetabaseCli
       MetabaseCli::GroupService.new(
         name: name
       ).create_group
+    end
+
+    desc 'create_grouped_user', 'Create a user and a group'
+
+    def create_grouped_user
+      group_id = create_group
+      create_user(group_id)
+    end
+
+    desc 'create', 'Create database, user and a group'
+    def create
+      create_database
+      create_grouped_user
     end
   end
 end

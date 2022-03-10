@@ -16,9 +16,10 @@ module MetabaseCli
         "name": @name
       })
 
-      puts "Group created with id: #{response['id']}"
+      @group_id = response["id"]
+      puts "Group created with id: #{@group_id}"
 
-      self
+      @group_id
     end
   end
 end

@@ -29,5 +29,20 @@ module MetabaseCli
         password: password
       ).create_database.set_default_permissions
     end
+
+    desc 'create_user', 'Create a user'
+    def create_user
+      first_name = ask("First name: ")
+      last_name = ask("Last name: ")
+      email= ask("Email: ")
+      group_wanted = ask("Group wanted: ")
+
+      MetabaseCli::UserService.new(
+        first_name: first_name,
+        last_name: last_name,
+        email: email,
+        group_wanted: group_wanted
+      ).create_user
+    end
   end
 end

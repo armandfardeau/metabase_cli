@@ -30,15 +30,15 @@ Gem::Specification.new do |spec|
   spec.executables = spec.files.grep(%r{\Aexe/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
 
-  spec.add_dependency 'thor'
-  spec.add_dependency 'metabase'
-  spec.add_dependency 'hash-deep-merge'
-  spec.add_dependency 'eventmachine'
+  spec.add_dependency "eventmachine"
+  spec.add_dependency "hash-deep-merge"
+  spec.add_dependency "metabase"
+  spec.add_dependency "thor"
 
-  spec.add_development_dependency "rspec"
-  spec.add_development_dependency "rake"
-  spec.add_development_dependency "rubocop"
   spec.add_development_dependency "byebug"
+  spec.add_development_dependency "rake"
+  spec.add_development_dependency "rspec"
+  spec.add_development_dependency "rubocop"
 
   # Uncomment to register a new dependency of your gem
   # spec.add_dependency "example-gem", "~> 1.0"

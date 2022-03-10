@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require "metabase"
 require "hash_deep_merge"
 require_relative "api"
@@ -28,7 +30,7 @@ module MetabaseCli
     def set_default_permissions
       response = MetabaseCli::Api.client.put("/api/permissions/graph", default_permissions)
 
-      puts "Successfully set default permissions" if permissions_graph[:"revision"] != response["revision"]
+      puts "Successfully set default permissions" if permissions_graph[:revision] != response["revision"]
     end
 
     private
@@ -53,7 +55,7 @@ module MetabaseCli
           "groups":
             {
               "1": {
-                "#{@database_id.to_s}": {
+                "#{@database_id}": {
                   "native": "none",
                   "schemas": "none"
                 }

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require "metabase"
 require "hash_deep_merge"
 require_relative "api"

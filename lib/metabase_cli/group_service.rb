@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require "metabase"
 require "hash_deep_merge"
 require_relative "api"
@@ -13,8 +15,8 @@ module MetabaseCli
 
     def create_group
       response = MetabaseCli::Api.client.post("/api/permissions/group", {
-        "name": @name
-      })
+                                                "name": @name
+                                              })
 
       @group_id = response["id"]
       puts "Group created with id: #{@group_id}"

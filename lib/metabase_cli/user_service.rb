@@ -24,13 +24,6 @@ module MetabaseCli
       self
     end
 
-    def invite_again
-      MetabaseCli::Api.client.post("/api/user/#{@user_id}/send_invite")
-      puts "Successfully invited user with id: #{@user_id}"
-
-      self
-    end
-
     private
 
     def user_params

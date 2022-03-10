@@ -49,7 +49,6 @@ module MetabaseCli
         email: email,
         group_wanted: group_wanted
       ).create_user
-                              .invite_again
     end
 
     desc "create_group", "Create a group"

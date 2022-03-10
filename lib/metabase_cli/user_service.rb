@@ -2,6 +2,7 @@
 
 require "metabase"
 require "hash_deep_merge"
+require "securerandom"
 require_relative "api"
 
 module MetabaseCli

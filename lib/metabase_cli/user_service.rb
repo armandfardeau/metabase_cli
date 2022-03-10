@@ -21,18 +21,32 @@ module MetabaseCli
       self
     end
 
+    def invite_again
+      MetabaseCli::Api.client.post("/api/user/#{@user_id}/send_invite")
+      puts "Successfully invited user with id: #{@user_id}"
+
+      self
+    end
+
     private
 
     def user_params
       {
-        first_name: @first_name,
-        last_name: @last_name,
-        email: @email,
-        password: SecureRandom.alphanumeric(32),
-        group_ids: nil,
-        login_attributes: nil,
-        locale: "fr"
+        "first_name": @first_name,
+        "last_name": @last_name,
+        "email": @email,
+        "password": SecureRandom.alphanumeric(32),
+        "group_ids": group_wanted_ids,
+        "login_attributes": nil,
+        "locale": "fr"
       }
+    end
+
+    def group_wanted_ids
+      return [1] if @group_wanted.nil?
+      return [1] if @group_wanted == "1"
+
+      [1, @group_wanted.to_i]
     end
   end
 end

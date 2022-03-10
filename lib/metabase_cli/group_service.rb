@@ -13,7 +13,7 @@ module MetabaseCli
 
     def create_group
       response = MetabaseCli::Api.client.post("/api/permissions/group", {
-        name: @name
+        "name": @name
       })
 
       puts "Group created with id: #{response['id']}"

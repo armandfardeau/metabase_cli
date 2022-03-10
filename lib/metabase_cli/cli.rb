@@ -39,7 +39,7 @@ module MetabaseCli
       first_name = ask("First name: ")
       last_name = ask("Last name: ")
       email = ask("Email: ")
-      group_wanted = ask("Group wanted: ")
+      group_wanted = ask("Group wanted: ", default: "1")
 
       MetabaseCli::UserService.new(
         first_name: first_name,
@@ -47,9 +47,11 @@ module MetabaseCli
         email: email,
         group_wanted: group_wanted
       ).create_user
+                              .invite_again
     end
 
     desc 'create_group', 'Create a group'
+
     def create_group
       name = ask("Group name: ")
 
